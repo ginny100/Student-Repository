@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html class="h-100" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <title>Spring Thymeleaf Template</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <link th:href="@{/vendors/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+    <link th:href="@{/vendors/fontawesome/css/all.min.css}" rel="stylesheet">
+</head>
+
+<body class="d-flex flex-column h-100">
+<header>
+    <div class="px-3 py-2 bg-dark text-white">
+        <div class="container">
+            <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                <h1> Students Repository</h1>
+            </div>
+        </div>
+    </div>
+</header>
+
+<main class="flex-shrink-0">
+    <div class="container">
+        <div class="py-4" layout:fragment="content"></div>
+    </div>
+</main>
+
+
+<script th:src="@{/vendors/jquery/jquery.min.js}" type="text/javascript"></script>
+<script th:src="@{/vendors/jquery-mask/dist/jquery.mask.min.js}" type="text/javascript"></script>
+<script th:src="@{/vendors/bootstrap/js/bootstrap.bundle.min.js}" type="text/javascript"></script>
+<script type="text/javascript">
+            $(document).ready(function() {
+                $(".birthdayDate").mask("00/00/0000");
+            });
+        </script>
+<th:block layout:fragment="scripts"></th:block>
+</body>
+</html>

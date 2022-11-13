@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{/layout/basic}">
+    <head>
+        <meta charset="ISO-8859-1">
+        <title>Students</title>
+    </head>
+
+    <body>
+        <div layout:fragment="content">
+            <h1 class="text-center mb-4">New student</h1>
+
+            <form method="POST" th:action="@{/students/new}" class="mx-auto w-50" th:object="${student}">
+                <th:block th:include="fragment/error-message.html"></th:block>
+                <fieldset>
+                    <legend>Personal Informations</legend>
+                    <div class="row">
+                        <div class="col-sm-12 mb-3">
+                            <label>Name</label>
+                            <input type="text" class="form-control" placeholder="Enter the name..." th:field="*{name}" th:classappend="${#fields.hasErrors('name')}? 'is-invalid'">
+                        </div>
+                        <div class="col-sm-12 mb-3">
+                            <label>E-mail</label>
+                            <input type="text" class="form-control" placeholder="Enter the e-mail..." th:field="*{email}" th:classappend="${#fields.hasErrors('email')}? 'is-invalid'">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6 mb-3">
+                            <label>Birthday</label>
+                            <input type="date" class="form-control" th:field="*{birthday}" th:classappend="${#fields.hasErrors('birthday')}? 'is-invalid'">
+                        </div>
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Address</legend>
+                    <div class="row"></div>
+                    <div class="mb-3">
+                        <label>Street</label>
+                        <input type="text" class="form-control" placeholder="Enter the street..." th:field="*{street}" th:classappend="${#fields.hasErrors('street')}? 'is-invalid'">
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6 mb-3">
+                            <label>Number</label>
+                            <input type="text" class="form-control" placeholder="Enter your number..." th:field="*{number}" th:classappend="${#fields.hasErrors('number')}? 'is-invalid'">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6 mb-3">
+                            <label>District </label>
+                            <input type="text" class="form-control" placeholder="Enter the district..." th:field="*{district}" th:classappend="${#fields.hasErrors('district')}? 'is-invalid'">
+                        </div>
+                        <div class="col-sm-6 mb-3">
+                            <label>City</label>
+                            <input type="text" class="form-control" placeholder="Enter the city..." th:field="*{city}" th:classappend="${#fields.hasErrors('city')}? 'is-invalid'">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6 mb-3">
+                            <label>State</label>
+                            <input type="text" class="form-control" placeholder="Enter the state..." th:field="*{state}" th:classappend="${#fields.hasErrors('state')}? 'is-invalid'">
+                        </div>
+                    </div>
+                </fieldset>
+
+                <div class="row">
+                    <div class="col-sm-6">
+                        <a th:href="@{/students}" class="btn btn-outline-secondary w-100">Back</a>
+                    </div>
+                    <div class="col-sm-6">
+                        <button type="submit" class="btn btn-outline-success w-100">Save</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </body>
+</html>
